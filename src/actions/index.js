@@ -8,5 +8,5 @@ export function fetchUsers() {
             { name: 'Bob' },
             { name: 'Ada' }
         ]
-    }
+    };
 }
