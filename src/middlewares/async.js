@@ -11,6 +11,6 @@ export default function({ dispatch }) {
         // note: we use '.then' to chain on something to do when the promise resolves
         // the 'next' keyword, in this case, means send this action onto the next middleware in our stack
         // if we don't have any other middlewares, it will be forwarded onto our reducers
-        console.log("we don't have a promise", action);
+        console.log("we have a promise", action);
     };
 }
