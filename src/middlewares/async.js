@@ -11,6 +11,15 @@ export default function({ dispatch }) {
         // note: we use '.then' to chain on something to do when the promise resolves
         // the 'next' keyword, in this case, means send this action onto the next middleware in our stack
         // if we don't have any other middlewares, it will be forwarded onto our reducers
-        console.log("we have a promise", action);
+        
+
+        // make sure the action's promise resolves
+        action.payload
+            .then(function(response) {
+                // create a new action with the old type, but replace the promise with the response data
+                const newAction = { ...action, payload: response };
+                dispatch(newAction);
+                // take this action and send it through the very top-most reducer again
+            });
     };
 }
